@@ -142,9 +142,9 @@ $(function(){
       temp.style.border = node.style.border;
       temp.style.borderRadius = node.style.borderRadius;
       temp.innerHTML = node.innerHTML;
-      temp.classList.add('no-linenums');
         // 如果是 no-linenums 模式，禁用 <ol> 的默认行号
       if (node.classList.contains('no-linenums')) {
+        temp.classList.add('no-linenums');
         const ol = temp.querySelector('ol.code-lines');
         if (ol) {
           ol.setAttribute('type', 'none'); // 去掉序号
