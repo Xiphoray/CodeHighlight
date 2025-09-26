@@ -87,3 +87,11 @@ pre{margin:0;white-space:pre;}
 
 /* small responsive */
 @media(max-width:767px){.col-md-6{flex:0 0 100%;max-width:100%}}
+
+.github-link .github-icon {
+  fill: var(--muted);
+  transition: fill 0.2s ease-in-out;
+}
+.github-link:hover .github-icon {
+  fill: var(--accent);
+}
