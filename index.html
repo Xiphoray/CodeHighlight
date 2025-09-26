@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CodeHighlight - 在线代码高亮导出工具</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <!-- 本地优先的主题文件（若未放置在 assets/vendor/ 下，会回退到 CDN） -->
+  <link rel="stylesheet" href="assets/vendor/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css" id="hl-theme" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="bg-dark text-light">
+  <div class="container py-4">
+    <h1 class="h3 mb-4 font-weight-light">Code<span class="font-weight-bold">Highlight</span></h1>
+    <div id="settings" class="mb-3">
+      <div class="d-flex flex-wrap align-items-center">
+        <select id="theme-select" class="custom-select control-element mr-2 mb-2"></select>
+        <select id="language-select" class="custom-select control-element mr-2 mb-2"></select>
+        <button id="detect-btn" class="btn btn-ghost control-element mr-2 mb-2">自动检测</button>
+        <button id="beautify-btn" class="btn btn-ghost control-element mr-2 mb-2">美化代码</button>
+        <label class="control-element mr-2 mb-2" style="display:flex;align-items:center;">
+          <input type="checkbox" id="toggle-linenums" checked style="margin-right:8px;"> 显示行号
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <label class="d-block">输入代码</label>
+        <textarea id="code-input" class="form-control monospace" rows="5" placeholder="粘贴代码或从文件拖拽..."></textarea>
+        <div class="mt-2 d-flex flex-wrap align-items-center">
+          <button id="copy-plain" class="btn btn-ghost mr-2 mb-2">复制纯文本</button>
+          <button id="export-png" class="btn btn-secondary mr-2 mb-2">导出 PNG</button>
+          <button id="export-jpeg" class="btn btn-secondary mr-2 mb-2">导出 JPEG</button>
+          <button id="export-svg" class="btn btn-secondary mr-2 mb-2">导出 SVG</button>
+          <button id="export-html" class="btn btn-secondary mb-2">导出 HTML</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-12">
+        <label class="d-block">预览</label>
+        <div id="preview-wrap" class="preview-wrap">
+          <pre><code id="preview" class="hljs"></code></pre>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="text-center text-muted py-3">
+    <small>Copyright &copy; Xiphoray <span id="copyright-year"></span></small>
+  </footer>
+
+  <script src="assets/vendor/jquery.min.js"></script>
+  <script src="assets/vendor/highlight.min.js"></script>
+  <script src="assets/vendor/js-beautify.min.js"></script>
+  <script src="assets/vendor/html2canvas.min.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

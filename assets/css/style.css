@@ -1,0 +1,89 @@
+.code-lines li {
+  position: relative;
+  font-family: inherit;
+  font-size: inherit;
+  padding-left: 0;
+  padding-right: 8px;
+  white-space: pre;
+  background: none;
+}
+.code-lines li::marker {
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 1em;
+  text-align: right;
+  width: 2em;
+}
+.code-lines li::before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  height: 1.2em;
+  width: 2px;
+  background: linear-gradient(180deg,#2ecc40,#27ae60);
+  margin: 0 10px 0 6px;
+  border-radius: 1px;
+}
+.no-linenums .code-lines li::marker {
+  content: "";
+}
+.no-linenums .code-lines li::before {
+  display: none;
+}
+
+:root{
+  --bg:#0b0f14;
+  --panel:#0f1720;
+  --muted:#9aa7b2;
+  --accent:#3aa0ff;
+  --border:rgba(255,255,255,0.06);
+  --btn-bg:#f6f8fa;
+  --btn-border:#e1e4e8;
+  --btn-text:#24292e;
+}
+html,body{height:100%;}
+body{background:linear-gradient(180deg,var(--bg),#071017);font-family:Inter,Segoe UI,Segoe,Helvetica,Arial,sans-serif;color:#e6f0fb}
+.monospace{font-family:SFMono-Regular,Consolas,Menlo,Monaco,monospace}
+.preview-wrap{background:var(--panel);border:1px solid var(--border);padding:12px;border-radius:6px;overflow:auto}
+pre{margin:0;white-space:pre;}
+
+/* 控制元素间距 & 仿 GitHub 按钮 */
+.control-element{margin-right:8px}
+.btn-ghost{background:var(--btn-bg);color:var(--btn-text);border:1px solid var(--btn-border);border-radius:6px;padding:6px 10px}
+.btn-ghost:hover{background:#eef1f4}
+.btn-primary{background:linear-gradient(180deg,var(--accent),#0078d4);border:0;color:#fff;border-radius:6px;padding:6px 10px}
+.btn-secondary{background:#2f363d;border:0;color:#e6f0fb;border-radius:6px;padding:6px 10px}
+
+/* line numbers: toggle by adding/removing .no-linenums on preview-wrap */
+
+/* 新行号方案：ol/li + ::marker */
+.code-lines {
+  list-style-type: decimal;
+  margin: 0;
+  padding-left: 2.5em;
+  background: none;
+}
+.code-lines li {
+  font-family: inherit;
+  font-size: inherit;
+  padding-left: 0;
+  padding-right: 8px;
+  white-space: pre;
+  background: none;
+}
+.code-lines li::marker {
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 1em;
+  text-align: right;
+  width: 2em;
+}
+.no-linenums .code-lines li::marker {
+  content: "";
+}
+
+/* 导出时扩展 preview-wrap 父容器，确保 html2canvas 能捕获完整高度 */
+.export-fullscreen{position:relative;display:block;width:100%}
+
+/* small responsive */
+@media(max-width:767px){.col-md-6{flex:0 0 100%;max-width:100%}}
