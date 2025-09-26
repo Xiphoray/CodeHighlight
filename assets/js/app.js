@@ -142,6 +142,15 @@ $(function(){
       temp.style.border = node.style.border;
       temp.style.borderRadius = node.style.borderRadius;
       temp.innerHTML = node.innerHTML;
+      temp.classList.add('no-linenums');
+        // 如果是 no-linenums 模式，禁用 <ol> 的默认行号
+      if (node.classList.contains('no-linenums')) {
+        const ol = temp.querySelector('ol.code-lines');
+        if (ol) {
+          ol.setAttribute('type', 'none'); // 去掉序号
+          ol.style.listStyle = 'none';     // 再保险
+        }
+      }
       document.body.appendChild(temp);
       // 获取内容宽高
       const pre = temp.querySelector('pre');
